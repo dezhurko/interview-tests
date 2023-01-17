@@ -22,11 +22,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             var r1 = new Value(1, 1);
-            Console.WriteLine($"{r1.X}");
-
             var r2 = r1;
-            r2.X = 2;
-            Console.WriteLine($"{r1.X}");
+            r1.X = 2;
+            Console.WriteLine($"{r2.X}");
 
             SetX3(r2);
             Console.WriteLine($"{r2.X}");
@@ -36,9 +34,13 @@ namespace ConsoleApp1
             
             SetX5(in r2);
             Console.WriteLine($"{r2.X}");
-
-            r2 = (Value)SetX6(r2);
+            
+            SetX6(r2);
             Console.WriteLine($"{r2.X}");
+
+            var r3 = (IValue)r2;
+            SetX6(r3);
+            Console.WriteLine($"{r3.X}");
         }
 
         private static void SetX3(Value r)
@@ -56,11 +58,9 @@ namespace ConsoleApp1
             r.X = 5;
         }
         
-        private static IValue SetX6(IValue r)
+        private static void SetX6(IValue r)
         {
-            var rr = (Value)r;
-            rr.X = 6;
-            return r;
+            r.X = 6;
         }
     }
 }
