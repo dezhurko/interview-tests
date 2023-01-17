@@ -21,46 +21,44 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var r1 = new Value(1, 1);
-            var r2 = r1;
-            r1.X = 2;
-            Console.WriteLine($"{r2.X}");
+            var v = new Value(1, 1);        
 
-            SetX3(r2);
-            Console.WriteLine($"{r2.X}");
+            SetX(v);
+            Console.WriteLine($"{v.X}");
 
-            SetX4(ref r2);
-            Console.WriteLine($"{r2.X}");
-            
-            SetX5(in r2);
-            Console.WriteLine($"{r2.X}");
-            
-            SetX6(r2);
-            Console.WriteLine($"{r2.X}");
+            SetWithRef(ref v);
+            Console.WriteLine($"{v.X}");
 
-            var r3 = (IValue)r2;
-            SetX6(r3);
-            Console.WriteLine($"{r3.X}");
+            SetWithIn(in v);
+            Console.WriteLine($"{v.X}");
+
+            SetWithInterface(v);
+            Console.WriteLine($"{v.X}");
+
+            var vi = (IValue)v;
+            SetWithInterface(vi);
+            Console.WriteLine($"{v.X}");
+            Console.WriteLine($"{vi.X}");
         }
 
-        private static void SetX3(Value r)
+        private static void SetX(Value v)
         {
-            r.X = 3;
+            v.X = 3;
         }
         
-        private static void SetX4(ref Value r)
+        private static void SetWithRef(ref Value v)
         {
-            r.X = 4;
+            v.X = 4;
         }
         
-        private static void SetX5(in Value r)
+        private static void SetWithIn(in Value v)
         {
-            r.X = 5;
+            v.X = 5;
         }
         
-        private static void SetX6(IValue r)
+        private static void SetWithInterface(IValue v)
         {
-            r.X = 6;
+            v.X = 6;
         }
     }
 }
