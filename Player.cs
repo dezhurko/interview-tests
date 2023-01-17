@@ -9,8 +9,8 @@ public class Player : MonoBehaviour, IActorTemplate
     int travelSpeed;
     int health;
     int hitPower;
-    GameObject actor;
-    GameObject fire;
+    private GameObject actor;
+    private GameObject fire;
 
     private int rtps;
     
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour, IActorTemplate
     GameObject _Player;
     float width;
     float height;
+
 
     private void Start()
     {
