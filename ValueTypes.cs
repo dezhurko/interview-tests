@@ -11,7 +11,7 @@ namespace ConsoleApp1
     {
         public double X { get; set; }
 
-        public Value(double x, double y)
+        public Value(double x)
         {
             X = x;
         }
@@ -21,7 +21,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var v = new Value(1, 1);        
+            var v = new Value(1);        
 
             SetX(v);
             Console.WriteLine($"{v.X}");
